@@ -1,0 +1,9 @@
+{
+    "domains": [
+        {
+            "icon": "/home/arabach/.config/Zulip/server-icons/1121285930",
+            "url": "https://nvcc.zulipchat.com",
+            "alias": "NVCC"
+        }
+    ]
+}

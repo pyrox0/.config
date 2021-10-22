@@ -1,0 +1,13 @@
+{"_id":"defaultTheatreMode","value":true}
+{"_id":"hideActiveSubscriptions","value":true}
+{"_id":"hideChannelSubscriptions","value":true}
+{"_id":"hideCommentLikes","value":true}
+{"_id":"hideLiveChat","value":true}
+{"_id":"hidePopularVideos","value":true}
+{"_id":"hideRecommendedVideos","value":true}
+{"_id":"hideTrendingVideos","value":true}
+{"_id":"hideVideoLikesAndDislikes","value":true}
+{"_id":"hideVideoViews","value":true}
+{"_id":"playNextVideo","value":false}
+{"_id":"sponsorBlockShowSkippedToast","value":false}
+{"_id":"useSponsorBlock","value":true}

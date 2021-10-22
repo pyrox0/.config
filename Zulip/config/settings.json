@@ -1,0 +1,30 @@
+{
+    "appLanguage": "en",
+    "autoHideMenubar": false,
+    "errorReporting": true,
+    "useSystemProxy": false,
+    "silent": true,
+    "trayIcon": true,
+    "startMinimized": false,
+    "useManualProxy": false,
+    "autoUpdate": true,
+    "betaUpdate": true,
+    "showSidebar": true,
+    "badgeOption": true,
+    "startAtLogin": false,
+    "enableSpellchecker": true,
+    "showNotification": false,
+    "customCSS": false,
+    "lastActiveTab": 0,
+    "dnd": false,
+    "dndPreviousSettings": {
+        "showNotification": true,
+        "silent": false
+    },
+    "downloadsPath": "/home/arabach/Downloads",
+    "quitOnClose": false,
+    "promptDownload": false,
+    "spellcheckerLanguages": [
+        "en-US"
+    ]
+}

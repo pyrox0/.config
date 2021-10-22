@@ -1,0 +1,19 @@
+classic: false
+
+color:
+  when: auto
+
+icons:
+  when: auto
+  theme: unicode
+
+indicators: true
+
+layout: grid
+
+sorting:
+  column: name
+  reverse: false
+  dir-grouping: first
+
+total-size: true

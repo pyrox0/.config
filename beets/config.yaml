@@ -1,0 +1,39 @@
+directory: /Volumes/STUFF/Music
+library: /Volumes/STUFF/Music/beets/beets.db
+
+threaded: yes
+sort_case_insensitive: yes
+
+ui:
+  color: yes
+
+import:
+  write: yes
+  move: yes
+  resume: yes
+  from_scratch: yes
+  log: /Volumes/STUFF/Music/beets/log.txt
+  default_action: apply
+  language: en
+  group_albums: yes
+  autotag: yes
+  duplicate_action: keep
+  bell: no
+  incremental: yes
+
+
+match:
+  strong_rec_thresh: 0.04
+  medium_rec_thresh: 0.10
+
+paths:
+  default: $artist/$album/$disc-$track $title
+
+
+plugins: chroma lyrics mbsync check fetchart lastgenre
+
+lyrics:
+  sources: genius
+
+
+
