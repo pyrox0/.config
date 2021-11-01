@@ -1,3 +1,3 @@
 return {
-    default_prog = {"/usr/bin/fish"}
+    default_prog = {"fish"}
 }
