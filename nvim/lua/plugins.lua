@@ -62,7 +62,6 @@ return require('packer').startup({function(use)
 	-- Extra highlight groups for vim/pre-lsp colorschemes
 	use { 
             'folke/lsp-colors.nvim',
-            after = 'lspconfig',
         }
 
 	-- Nvim-web-devicons
@@ -72,8 +71,8 @@ return require('packer').startup({function(use)
 	-- Literally only used to set leader
 	use {
     	"lazytanuki/nvim-mapper",
+		as = 'nvim-mapper',
     	config = function() require("nvim-mapper").setup{} end,
-		before = "telescope",
 	}
 
 	-- Neovim Tree-sitter
@@ -85,7 +84,7 @@ return require('packer').startup({function(use)
 		config = function()
 			require('config.treesitter')
 		end,
-                on = 'BufEnter'
+        on = 'BufEnter'
 	}
 
 	-- Core Plugins
@@ -96,7 +95,6 @@ return require('packer').startup({function(use)
 	use {
 		'folke/which-key.nvim',
 		as = 'whichkey',
-    	after = 'telescope',
 		config = function() require("config.which-key") end,
 	}
 
@@ -106,8 +104,7 @@ return require('packer').startup({function(use)
 	use {
 		'nvim-telescope/telescope.nvim',
 		as = 'telescope',
-		requires = {{'popup'}, {'plenary'}},
-        cmd = 'VimEnter',
+		requires = {'popup', 'plenary', 'nvim-mapper'},
 		config = function() require('config/telescope') end,
 	}
 
@@ -116,7 +113,6 @@ return require('packer').startup({function(use)
 	use {
 		'romgrk/barbar.nvim',
 		as = 'barbar',
-        cmd = 'BufEnter',
   		requires = {'devicons'},
 	}
 
@@ -125,7 +121,7 @@ return require('packer').startup({function(use)
 	use {
 		'famiu/feline.nvim',
 		as = 'feline',
-		after = {'gitsigns', 'devicons', 'dashboard'},
+		requires = {'gitsigns', 'devicons'},
 		config = function() require('config.feline') end,
 	}
 
@@ -133,7 +129,6 @@ return require('packer').startup({function(use)
 	use {
 		'goolord/alpha-nvim',
 		as = 'dashboard',
-		cmd = 'VimEnter',
 		config = function() 
 			require'alpha'.setup(require'alpha.themes.dashboard'.opts) 
 		end,
@@ -146,10 +141,9 @@ return require('packer').startup({function(use)
 	use {
 		'neovim/nvim-lspconfig',
 		as = 'lspconfig',
-		cmd = 'BufEnter',
 		config = function() require('config.lsp') end,
 	}
-        --[[
+    
 	-- Rust-tools.nvim:
 	-- Rust tools for writing rust in neovim.
 	use {
@@ -158,7 +152,6 @@ return require('packer').startup({function(use)
 		after = 'lspconfig',
 		config = function() require('config.rust-tools') end
 	}
-        ]]--
 
 	-- Autocomplete
 	
@@ -169,7 +162,6 @@ return require('packer').startup({function(use)
 		as = 'coq.nvim',
 		branch = 'coq',
 		run = ':COQdeps',
-        cmd = 'InsertEnter',
 		config = function() require('config.coq') end,
 	}
 	-- Snippets for COQ.nvim
@@ -249,7 +241,7 @@ return require('packer').startup({function(use)
 
 end,
 config = {
-	--Packer Configuration
+	-- Packer Configuration
 	display = {
 		open_fn = require'packer.util'.float,
 		prompt_border = 'single',

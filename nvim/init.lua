@@ -10,7 +10,7 @@
 -- everything in the config eventually leads back here.
 
 -- Load impatient.nvim for fast loading.
---require'impatient'.enable_profile()
+require'impatient'.enable_profile()
 
 local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
@@ -19,6 +19,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
   vim.cmd 'packadd packer.nvim'
 end
 
+vim.o.termguicolors = true
 
 -- Load packer_compiled file
 require('packer_compiled')

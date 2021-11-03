@@ -1,3 +1,4 @@
+.DS_Store
 alfred/
 darktable/*.db*
 darktable/lua/
@@ -73,3 +74,9 @@ FreeTube/TransportSecurity
 FreeTube/Cookie*
 FreeTube/Local*
 FreeTube/Session*
+
+# Fish misc
+fish/completions
+fish/conf.d/dracula.fish
+fish/conf.d/fzf.fish
+fish/functions

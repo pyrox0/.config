@@ -1,0 +1,18 @@
+tap "homebrew/bundle"
+tap "homebrew/core"
+tap "wez/wezterm"
+brew "age"
+brew "openssl@1.1"
+brew "buku"
+brew "chezmoi"
+brew "fish"
+brew "fzf"
+brew "git"
+brew "gojq"
+brew "lua"
+brew "rust-analyzer"
+brew "task"
+brew "taskd"
+brew "taskwarrior-tui"
+cask "kitty", args: { appdir: "~/Applications" }
+cask "wezterm-nightly", args: { appdir: "~/Applications" }
