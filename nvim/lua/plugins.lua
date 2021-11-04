@@ -153,6 +153,15 @@ return require('packer').startup({function(use)
 		config = function() require('config.rust-tools') end
 	}
 
+	-- Null-LS
+	-- Use formatters as LSP servers 
+	use {
+		'jose-elias-alvarez/null-ls.nvim',
+		as = 'null-ls',
+		after = 'lspconfig',
+		config = function() require('config.null-ls') end
+	}
+
 	-- Autocomplete
 	
 	-- COQ.nvim

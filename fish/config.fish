@@ -3,5 +3,5 @@ if status is-interactive
     zoxide init --cmd cd fish | source
 end
 
-source $__fish_config_dir/set_env.fish
-source $__fish_config_dir/set_path.fish
+source "$__fish_config_dir"/set_env.fish
+source "$__fish_config_dir"/set_path.fish

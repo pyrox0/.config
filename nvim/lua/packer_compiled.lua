@@ -75,31 +75,22 @@ _G.packer_plugins = {
     url = "https://github.com/romgrk/barbar.nvim"
   },
   ["coq.artifacts"] = {
-    load_after = {
-      ["coq.tp"] = true
-    },
-    loaded = false,
+    load_after = {},
+    loaded = true,
     needs_bufread = false,
     path = "/Users/993390/.local/share/nvim/site/pack/packer/opt/coq.artifacts",
     url = "https://github.com/ms-jpq/coq.artifacts"
   },
   ["coq.nvim"] = {
-    after = { "coq.tp", "sniprun" },
-    commands = { "InsertEnter" },
-    config = { "\27LJ\2\n*\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\15config.coq\frequire\0" },
-    loaded = false,
-    needs_bufread = true,
-    only_cond = false,
-    path = "/Users/993390/.local/share/nvim/site/pack/packer/opt/coq.nvim",
-    url = "https://github.com/ms-jpq/coq_nvim"
+    after = { "sniprun", "coq.tp" },
+    loaded = true,
+    only_config = true
   },
   ["coq.tp"] = {
     after = { "coq.artifacts" },
     config = { "\27LJ\2\n-\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\18config.coq_3p\frequire\0" },
-    load_after = {
-      ["coq.nvim"] = true
-    },
-    loaded = false,
+    load_after = {},
+    loaded = true,
     needs_bufread = false,
     path = "/Users/993390/.local/share/nvim/site/pack/packer/opt/coq.tp",
     url = "https://github.com/ms-jpq/coq.thirdparty"
@@ -144,7 +135,7 @@ _G.packer_plugins = {
     url = "https://github.com/folke/lsp-colors.nvim"
   },
   lspconfig = {
-    after = { "rust-tools" },
+    after = { "null-ls", "rust-tools" },
     loaded = true,
     only_config = true
   },
@@ -152,6 +143,14 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/993390/.local/share/nvim/site/pack/packer/start/notify",
     url = "https://github.com/rcarriga/nvim-notify"
+  },
+  ["null-ls"] = {
+    config = { "\27LJ\2\n.\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\19config.null-ls\frequire\0" },
+    load_after = {},
+    loaded = true,
+    needs_bufread = false,
+    path = "/Users/993390/.local/share/nvim/site/pack/packer/opt/null-ls",
+    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
   ["nvim-mapper"] = {
     config = { "\27LJ\2\n=\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\16nvim-mapper\frequire\0" },
@@ -205,10 +204,8 @@ _G.packer_plugins = {
   sniprun = {
     after = { "tmux-conf" },
     config = { "\27LJ\2\n.\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\19config.sniprun\frequire\0" },
-    load_after = {
-      ["coq.nvim"] = true
-    },
-    loaded = false,
+    load_after = {},
+    loaded = true,
     needs_bufread = false,
     path = "/Users/993390/.local/share/nvim/site/pack/packer/opt/sniprun",
     url = "https://github.com/michaelb/sniprun"
@@ -220,9 +217,7 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["tmux-conf"] = {
-    load_after = {
-      sniprun = true
-    },
+    load_after = {},
     loaded = false,
     needs_bufread = true,
     only_cond = false,
@@ -243,6 +238,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: dashboard
+time([[Config for dashboard]], true)
+try_loadstring("\27LJ\2\n_\0\0\5\0\5\0\n6\0\0\0'\2\1\0B\0\2\0029\0\2\0006\2\0\0'\4\3\0B\2\2\0029\2\4\2B\0\2\1K\0\1\0\topts\27alpha.themes.dashboard\nsetup\nalpha\frequire\0", "config", "dashboard")
+time([[Config for dashboard]], false)
 -- Config for: nvim-mapper
 time([[Config for nvim-mapper]], true)
 try_loadstring("\27LJ\2\n=\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\16nvim-mapper\frequire\0", "config", "nvim-mapper")
@@ -251,10 +250,6 @@ time([[Config for nvim-mapper]], false)
 time([[Config for whichkey]], true)
 try_loadstring("\27LJ\2\n0\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\21config.which-key\frequire\0", "config", "whichkey")
 time([[Config for whichkey]], false)
--- Config for: telescope
-time([[Config for telescope]], true)
-try_loadstring("\27LJ\2\n0\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\21config/telescope\frequire\0", "config", "telescope")
-time([[Config for telescope]], false)
 -- Config for: lspconfig
 time([[Config for lspconfig]], true)
 try_loadstring("\27LJ\2\n*\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\15config.lsp\frequire\0", "config", "lspconfig")
@@ -263,29 +258,43 @@ time([[Config for lspconfig]], false)
 time([[Config for treesitter]], true)
 try_loadstring("\27LJ\2\n1\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\22config.treesitter\frequire\0", "config", "treesitter")
 time([[Config for treesitter]], false)
--- Config for: dashboard
-time([[Config for dashboard]], true)
-try_loadstring("\27LJ\2\n_\0\0\5\0\5\0\n6\0\0\0'\2\1\0B\0\2\0029\0\2\0006\2\0\0'\4\3\0B\2\2\0029\2\4\2B\0\2\1K\0\1\0\topts\27alpha.themes.dashboard\nsetup\nalpha\frequire\0", "config", "dashboard")
-time([[Config for dashboard]], false)
 -- Config for: feline
 time([[Config for feline]], true)
 try_loadstring("\27LJ\2\n-\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\18config.feline\frequire\0", "config", "feline")
 time([[Config for feline]], false)
+-- Config for: telescope
+time([[Config for telescope]], true)
+try_loadstring("\27LJ\2\n0\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\21config/telescope\frequire\0", "config", "telescope")
+time([[Config for telescope]], false)
+-- Config for: coq.nvim
+time([[Config for coq.nvim]], true)
+try_loadstring("\27LJ\2\n*\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\15config.coq\frequire\0", "config", "coq.nvim")
+time([[Config for coq.nvim]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
+vim.cmd [[ packadd null-ls ]]
+
+-- Config for: null-ls
+try_loadstring("\27LJ\2\n.\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\19config.null-ls\frequire\0", "config", "null-ls")
+
 vim.cmd [[ packadd rust-tools ]]
 
 -- Config for: rust-tools
 try_loadstring("\27LJ\2\n1\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\22config.rust-tools\frequire\0", "config", "rust-tools")
 
 vim.cmd [[ packadd dracula ]]
+vim.cmd [[ packadd sniprun ]]
+
+-- Config for: sniprun
+try_loadstring("\27LJ\2\n.\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\19config.sniprun\frequire\0", "config", "sniprun")
+
+vim.cmd [[ packadd coq.tp ]]
+
+-- Config for: coq.tp
+try_loadstring("\27LJ\2\n-\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\18config.coq_3p\frequire\0", "config", "coq.tp")
+
+vim.cmd [[ packadd coq.artifacts ]]
 time([[Sequenced loading]], false)
-
--- Command lazy-loads
-time([[Defining lazy-load commands]], true)
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file InsertEnter lua require("packer.load")({'coq.nvim'}, { cmd = "InsertEnter", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
-time([[Defining lazy-load commands]], false)
-
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
@@ -295,15 +304,15 @@ vim.cmd [[au FileType tmux ++once lua require("packer.load")({'tmux-conf'}, { ft
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 vim.cmd [[augroup filetypedetect]]
-time([[Sourcing ftdetect script at: /Users/993390/.local/share/nvim/site/pack/packer/opt/tmux-conf/ftdetect/tmux.vim]], true)
-vim.cmd [[source /Users/993390/.local/share/nvim/site/pack/packer/opt/tmux-conf/ftdetect/tmux.vim]]
-time([[Sourcing ftdetect script at: /Users/993390/.local/share/nvim/site/pack/packer/opt/tmux-conf/ftdetect/tmux.vim]], false)
 time([[Sourcing ftdetect script at: /Users/993390/.local/share/nvim/site/pack/packer/opt/orgmode/ftdetect/org.vim]], true)
 vim.cmd [[source /Users/993390/.local/share/nvim/site/pack/packer/opt/orgmode/ftdetect/org.vim]]
 time([[Sourcing ftdetect script at: /Users/993390/.local/share/nvim/site/pack/packer/opt/orgmode/ftdetect/org.vim]], false)
 time([[Sourcing ftdetect script at: /Users/993390/.local/share/nvim/site/pack/packer/opt/orgmode/ftdetect/org_archive.vim]], true)
 vim.cmd [[source /Users/993390/.local/share/nvim/site/pack/packer/opt/orgmode/ftdetect/org_archive.vim]]
 time([[Sourcing ftdetect script at: /Users/993390/.local/share/nvim/site/pack/packer/opt/orgmode/ftdetect/org_archive.vim]], false)
+time([[Sourcing ftdetect script at: /Users/993390/.local/share/nvim/site/pack/packer/opt/tmux-conf/ftdetect/tmux.vim]], true)
+vim.cmd [[source /Users/993390/.local/share/nvim/site/pack/packer/opt/tmux-conf/ftdetect/tmux.vim]]
+time([[Sourcing ftdetect script at: /Users/993390/.local/share/nvim/site/pack/packer/opt/tmux-conf/ftdetect/tmux.vim]], false)
 vim.cmd("augroup END")
 if should_profile then save_profiles() end
 

@@ -1,0 +1,6 @@
+# Chezmoi config by mrHedgehog
+
+# Always use color. This isn't the 90's
+color = true
+encryption = "age"
+

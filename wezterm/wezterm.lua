@@ -10,9 +10,7 @@ end
 return {
     default_prog = {fish, "-l"},
     term = "wezterm",
-    
-    font = wezterm.font_with_fallback({
-	"Input Mono",
-	"FiraCode Nerd Font Mono",
-    })
+   
+	-- Set font
+    font = wezterm.font("FiraCode Nerd Font Mono")
 }

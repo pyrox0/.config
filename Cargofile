@@ -23,3 +23,7 @@ cargo-audit
 cargo-bloat
 nu
 taskwarrior-tui
+taplo-lsp
+taplo-cli
+stylua
+
