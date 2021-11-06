@@ -53,17 +53,7 @@ return require('packer').startup({function(use)
 
 	-- Dracula Theme
 	-- Reason: I love it
-	use {
-		'dracula/vim',
-		as = 'dracula',
-        after = 'dashboard'
-	}
-	-- LSP-colors
-	-- Extra highlight groups for vim/pre-lsp colorschemes
-	use { 
-            'folke/lsp-colors.nvim',
-        }
-
+	use { 'dracula/vim', as = 'dracula' }
 	-- Nvim-web-devicons
 	-- The better devicons plugin
 	use {'kyazdani42/nvim-web-devicons', as = 'devicons',}
@@ -87,6 +77,13 @@ return require('packer').startup({function(use)
         on = 'BufEnter'
 	}
 
+	-- Filetype.nvim
+	-- Faster filetype detection for neovim.
+	use {
+		'nathom/filetype.nvim',
+		as = 'filetype.nvim'
+	}
+
 	-- Core Plugins
 	-- These are the backbone of my workflow.
 
@@ -105,7 +102,8 @@ return require('packer').startup({function(use)
 		'nvim-telescope/telescope.nvim',
 		as = 'telescope',
 		requires = {'popup', 'plenary', 'nvim-mapper'},
-		config = function() require('config/telescope') end,
+		config = function() require('config.telescope') end,
+		cmd = 'Telescope',
 	}
 
 	-- Barbar.nvim
@@ -114,6 +112,7 @@ return require('packer').startup({function(use)
 		'romgrk/barbar.nvim',
 		as = 'barbar',
   		requires = {'devicons'},
+		on = 'BufEnter',
 	}
 
 	-- feline.nvim
@@ -123,6 +122,7 @@ return require('packer').startup({function(use)
 		as = 'feline',
 		requires = {'gitsigns', 'devicons'},
 		config = function() require('config.feline') end,
+		on = 'BufEnter',
 	}
 
 	-- Dashboard
@@ -157,10 +157,19 @@ return require('packer').startup({function(use)
 	-- Use formatters as LSP servers 
 	use {
 		'jose-elias-alvarez/null-ls.nvim',
-		as = 'null-ls',
+		as = 'null_ls',
 		after = 'lspconfig',
-		config = function() require('config.null-ls') end
+		config = function() require('config.null_ls') end
 	}
+
+	-- LSP-colors
+	-- Extra highlight groups for vim/pre-lsp colorschemes
+	use { 
+		'folke/lsp-colors.nvim',
+		as = 'lspcolors',
+		after = 'lspconfig',
+	}
+
 
 	-- Autocomplete
 	
@@ -223,7 +232,7 @@ return require('packer').startup({function(use)
 	use {
 		'lewis6991/gitsigns.nvim',
   		requires = { 'plenary' },
-		as = 'gitsigns',
+		as = 'gitsigns2',
         cmd = 'BufEnter',
 		config = function() require('config.gitsigns') end
 	}

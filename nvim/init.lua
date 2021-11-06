@@ -1,4 +1,4 @@
--- mrhedgehog0's neovim config.
+#-- mrhedgehog0's neovim config.
 -- This is intended for use on my machines, and this is not a general-purpose
 -- config. I don't provide support for anyone else's use cases, and if you
 -- use this, expect breakages at any time, as I update my workflow. Thanks!

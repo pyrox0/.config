@@ -82,7 +82,7 @@ _G.packer_plugins = {
     url = "https://github.com/ms-jpq/coq.artifacts"
   },
   ["coq.nvim"] = {
-    after = { "sniprun", "coq.tp" },
+    after = { "coq.tp", "sniprun" },
     loaded = true,
     only_config = true
   },
@@ -96,9 +96,10 @@ _G.packer_plugins = {
     url = "https://github.com/ms-jpq/coq.thirdparty"
   },
   dashboard = {
-    after = { "dracula" },
+    config = { "\27LJ\2\n_\0\0\5\0\5\0\n6\0\0\0'\2\1\0B\0\2\0029\0\2\0006\2\0\0'\4\3\0B\2\2\0029\2\4\2B\0\2\1K\0\1\0\topts\27alpha.themes.dashboard\nsetup\nalpha\frequire\0" },
     loaded = true,
-    only_config = true
+    path = "/Users/993390/.local/share/nvim/site/pack/packer/start/dashboard",
+    url = "https://github.com/goolord/alpha-nvim"
   },
   devicons = {
     loaded = true,
@@ -106,11 +107,8 @@ _G.packer_plugins = {
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
   dracula = {
-    after_files = { "/Users/993390/.local/share/nvim/site/pack/packer/opt/dracula/after/plugin/dracula.vim" },
-    load_after = {},
     loaded = true,
-    needs_bufread = false,
-    path = "/Users/993390/.local/share/nvim/site/pack/packer/opt/dracula",
+    path = "/Users/993390/.local/share/nvim/site/pack/packer/start/dracula",
     url = "https://github.com/dracula/vim"
   },
   feline = {
@@ -119,23 +117,39 @@ _G.packer_plugins = {
     path = "/Users/993390/.local/share/nvim/site/pack/packer/start/feline",
     url = "https://github.com/famiu/feline.nvim"
   },
+  ["filetype.nvim"] = {
+    loaded = true,
+    path = "/Users/993390/.local/share/nvim/site/pack/packer/start/filetype.nvim",
+    url = "https://github.com/nathom/filetype.nvim"
+  },
   gitsigns = {
     loaded = true,
     path = "/Users/993390/.local/share/nvim/site/pack/packer/start/gitsigns",
     url = "https://github.com/gitsigns"
+  },
+  gitsigns2 = {
+    commands = { "BufEnter" },
+    config = { "\27LJ\2\n/\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\20config.gitsigns\frequire\0" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/Users/993390/.local/share/nvim/site/pack/packer/opt/gitsigns2",
+    url = "https://github.com/lewis6991/gitsigns.nvim"
   },
   ["impatient.nvim"] = {
     loaded = true,
     path = "/Users/993390/.local/share/nvim/site/pack/packer/start/impatient.nvim",
     url = "https://github.com/lewis6991/impatient.nvim"
   },
-  ["lsp-colors.nvim"] = {
+  lspcolors = {
+    load_after = {},
     loaded = true,
-    path = "/Users/993390/.local/share/nvim/site/pack/packer/start/lsp-colors.nvim",
+    needs_bufread = false,
+    path = "/Users/993390/.local/share/nvim/site/pack/packer/opt/lspcolors",
     url = "https://github.com/folke/lsp-colors.nvim"
   },
   lspconfig = {
-    after = { "null-ls", "rust-tools" },
+    after = { "lspcolors", "null_ls", "rust-tools" },
     loaded = true,
     only_config = true
   },
@@ -144,12 +158,12 @@ _G.packer_plugins = {
     path = "/Users/993390/.local/share/nvim/site/pack/packer/start/notify",
     url = "https://github.com/rcarriga/nvim-notify"
   },
-  ["null-ls"] = {
-    config = { "\27LJ\2\n.\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\19config.null-ls\frequire\0" },
+  null_ls = {
+    config = { "\27LJ\2\n.\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\19config.null_ls\frequire\0" },
     load_after = {},
     loaded = true,
     needs_bufread = false,
-    path = "/Users/993390/.local/share/nvim/site/pack/packer/opt/null-ls",
+    path = "/Users/993390/.local/share/nvim/site/pack/packer/opt/null_ls",
     url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
   ["nvim-mapper"] = {
@@ -211,9 +225,12 @@ _G.packer_plugins = {
     url = "https://github.com/michaelb/sniprun"
   },
   telescope = {
-    config = { "\27LJ\2\n0\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\21config/telescope\frequire\0" },
-    loaded = true,
-    path = "/Users/993390/.local/share/nvim/site/pack/packer/start/telescope",
+    commands = { "Telescope" },
+    config = { "\27LJ\2\n0\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\21config.telescope\frequire\0" },
+    loaded = false,
+    needs_bufread = true,
+    only_cond = false,
+    path = "/Users/993390/.local/share/nvim/site/pack/packer/opt/telescope",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["tmux-conf"] = {
@@ -238,51 +255,36 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: dashboard
-time([[Config for dashboard]], true)
-try_loadstring("\27LJ\2\n_\0\0\5\0\5\0\n6\0\0\0'\2\1\0B\0\2\0029\0\2\0006\2\0\0'\4\3\0B\2\2\0029\2\4\2B\0\2\1K\0\1\0\topts\27alpha.themes.dashboard\nsetup\nalpha\frequire\0", "config", "dashboard")
-time([[Config for dashboard]], false)
--- Config for: nvim-mapper
-time([[Config for nvim-mapper]], true)
-try_loadstring("\27LJ\2\n=\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\16nvim-mapper\frequire\0", "config", "nvim-mapper")
-time([[Config for nvim-mapper]], false)
--- Config for: whichkey
-time([[Config for whichkey]], true)
-try_loadstring("\27LJ\2\n0\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\21config.which-key\frequire\0", "config", "whichkey")
-time([[Config for whichkey]], false)
--- Config for: lspconfig
-time([[Config for lspconfig]], true)
-try_loadstring("\27LJ\2\n*\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\15config.lsp\frequire\0", "config", "lspconfig")
-time([[Config for lspconfig]], false)
 -- Config for: treesitter
 time([[Config for treesitter]], true)
 try_loadstring("\27LJ\2\n1\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\22config.treesitter\frequire\0", "config", "treesitter")
 time([[Config for treesitter]], false)
--- Config for: feline
-time([[Config for feline]], true)
-try_loadstring("\27LJ\2\n-\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\18config.feline\frequire\0", "config", "feline")
-time([[Config for feline]], false)
--- Config for: telescope
-time([[Config for telescope]], true)
-try_loadstring("\27LJ\2\n0\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\21config/telescope\frequire\0", "config", "telescope")
-time([[Config for telescope]], false)
+-- Config for: whichkey
+time([[Config for whichkey]], true)
+try_loadstring("\27LJ\2\n0\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\21config.which-key\frequire\0", "config", "whichkey")
+time([[Config for whichkey]], false)
+-- Config for: dashboard
+time([[Config for dashboard]], true)
+try_loadstring("\27LJ\2\n_\0\0\5\0\5\0\n6\0\0\0'\2\1\0B\0\2\0029\0\2\0006\2\0\0'\4\3\0B\2\2\0029\2\4\2B\0\2\1K\0\1\0\topts\27alpha.themes.dashboard\nsetup\nalpha\frequire\0", "config", "dashboard")
+time([[Config for dashboard]], false)
 -- Config for: coq.nvim
 time([[Config for coq.nvim]], true)
 try_loadstring("\27LJ\2\n*\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\15config.coq\frequire\0", "config", "coq.nvim")
 time([[Config for coq.nvim]], false)
+-- Config for: lspconfig
+time([[Config for lspconfig]], true)
+try_loadstring("\27LJ\2\n*\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\15config.lsp\frequire\0", "config", "lspconfig")
+time([[Config for lspconfig]], false)
+-- Config for: feline
+time([[Config for feline]], true)
+try_loadstring("\27LJ\2\n-\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\18config.feline\frequire\0", "config", "feline")
+time([[Config for feline]], false)
+-- Config for: nvim-mapper
+time([[Config for nvim-mapper]], true)
+try_loadstring("\27LJ\2\n=\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\16nvim-mapper\frequire\0", "config", "nvim-mapper")
+time([[Config for nvim-mapper]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
-vim.cmd [[ packadd null-ls ]]
-
--- Config for: null-ls
-try_loadstring("\27LJ\2\n.\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\19config.null-ls\frequire\0", "config", "null-ls")
-
-vim.cmd [[ packadd rust-tools ]]
-
--- Config for: rust-tools
-try_loadstring("\27LJ\2\n1\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\22config.rust-tools\frequire\0", "config", "rust-tools")
-
-vim.cmd [[ packadd dracula ]]
 vim.cmd [[ packadd sniprun ]]
 
 -- Config for: sniprun
@@ -294,25 +296,43 @@ vim.cmd [[ packadd coq.tp ]]
 try_loadstring("\27LJ\2\n-\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\18config.coq_3p\frequire\0", "config", "coq.tp")
 
 vim.cmd [[ packadd coq.artifacts ]]
+vim.cmd [[ packadd rust-tools ]]
+
+-- Config for: rust-tools
+try_loadstring("\27LJ\2\n1\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\22config.rust-tools\frequire\0", "config", "rust-tools")
+
+vim.cmd [[ packadd null_ls ]]
+
+-- Config for: null_ls
+try_loadstring("\27LJ\2\n.\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\19config.null_ls\frequire\0", "config", "null_ls")
+
+vim.cmd [[ packadd lspcolors ]]
 time([[Sequenced loading]], false)
+
+-- Command lazy-loads
+time([[Defining lazy-load commands]], true)
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file BufEnter lua require("packer.load")({'gitsigns2'}, { cmd = "BufEnter", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Telescope lua require("packer.load")({'telescope'}, { cmd = "Telescope", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+time([[Defining lazy-load commands]], false)
+
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType org ++once lua require("packer.load")({'orgmode'}, { ft = "org" }, _G.packer_plugins)]]
 vim.cmd [[au FileType tmux ++once lua require("packer.load")({'tmux-conf'}, { ft = "tmux" }, _G.packer_plugins)]]
+vim.cmd [[au FileType org ++once lua require("packer.load")({'orgmode'}, { ft = "org" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 vim.cmd [[augroup filetypedetect]]
+time([[Sourcing ftdetect script at: /Users/993390/.local/share/nvim/site/pack/packer/opt/tmux-conf/ftdetect/tmux.vim]], true)
+vim.cmd [[source /Users/993390/.local/share/nvim/site/pack/packer/opt/tmux-conf/ftdetect/tmux.vim]]
+time([[Sourcing ftdetect script at: /Users/993390/.local/share/nvim/site/pack/packer/opt/tmux-conf/ftdetect/tmux.vim]], false)
 time([[Sourcing ftdetect script at: /Users/993390/.local/share/nvim/site/pack/packer/opt/orgmode/ftdetect/org.vim]], true)
 vim.cmd [[source /Users/993390/.local/share/nvim/site/pack/packer/opt/orgmode/ftdetect/org.vim]]
 time([[Sourcing ftdetect script at: /Users/993390/.local/share/nvim/site/pack/packer/opt/orgmode/ftdetect/org.vim]], false)
 time([[Sourcing ftdetect script at: /Users/993390/.local/share/nvim/site/pack/packer/opt/orgmode/ftdetect/org_archive.vim]], true)
 vim.cmd [[source /Users/993390/.local/share/nvim/site/pack/packer/opt/orgmode/ftdetect/org_archive.vim]]
 time([[Sourcing ftdetect script at: /Users/993390/.local/share/nvim/site/pack/packer/opt/orgmode/ftdetect/org_archive.vim]], false)
-time([[Sourcing ftdetect script at: /Users/993390/.local/share/nvim/site/pack/packer/opt/tmux-conf/ftdetect/tmux.vim]], true)
-vim.cmd [[source /Users/993390/.local/share/nvim/site/pack/packer/opt/tmux-conf/ftdetect/tmux.vim]]
-time([[Sourcing ftdetect script at: /Users/993390/.local/share/nvim/site/pack/packer/opt/tmux-conf/ftdetect/tmux.vim]], false)
 vim.cmd("augroup END")
 if should_profile then save_profiles() end
 
