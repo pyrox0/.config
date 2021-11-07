@@ -2,4 +2,7 @@ grip
 black
 pyflakes
 isort
-
+poetry
+pytest
+nose
+pipenv

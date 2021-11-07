@@ -16,3 +16,9 @@ end
 function install_pipx
 	python3 -m pip install --user pipx
 end
+
+# I use pnpm to manage npm packages
+# So I only have 1 10GB node_modules folder
+function install_pnpm
+	npx pnpm add -g pnpm
+end
