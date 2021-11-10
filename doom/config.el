@@ -58,3 +58,6 @@
 ;; they are implemented.
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
 (setq which-key-idle-delay 0.3)
+
+;; Define my config's directory
+(setq hedge-config-dir "~/.config/doom/")
