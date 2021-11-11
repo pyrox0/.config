@@ -1,0 +1,19 @@
+#+AUTHOR: Mr Hedgehog
+#+TITLE: README.org
+
+
+
+* Mr Hedgehog's Dotfiles
+** This is the main repo for my dotfiles
+
+* Directories
+** Packagefiles
+*** This contains my Packagefiles
+**** What are Packagefiles?
+Packagefiles are my custom format for installing
+system-level packages on my machines
+**** What is the format?
+Simple. 1 package per line, along with that package's flags.
+That's it. Really. Take a look at them if you don't believe me.
+Also, each Packagefile is named after what it installs packages for.
+src_sh{Pipfile} for src_sh{pip}, src_sh{Npmfile} for src_sh{npm}, etc.
