@@ -257,6 +257,12 @@ return require('packer').startup({function(use)
 		 config = function() require('config.sniprun') end
 	}
 
+	-- Zinit VIm Syntax
+	use {
+		'zdharma-continuum/zinit-vim-syntax',
+		as = 'zinit-vim',
+	}
+
 end,
 config = {
 	-- Packer Configuration

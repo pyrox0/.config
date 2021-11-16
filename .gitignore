@@ -1,4 +1,3 @@
-.DS_Store
 alfred/
 darktable/*.db*
 darktable/lua/
@@ -81,3 +80,5 @@ fish/conf.d/dracula.fish
 fish/conf.d/fzf.fish
 fish/functions
 /doom/config/minimap.el
+configstore/
+**/.DS_store

@@ -26,5 +26,5 @@ taskwarrior-tui
 taplo-lsp
 taplo-cli
 stylua
-
 hexyl
+hyperfine
