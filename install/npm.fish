@@ -1,7 +1,9 @@
+corepack enable
+corepack prepare pnpm --activate
 
 function install_npm_apps
 	while read -la app
-		npm install --global $app
+		pnpm add -g $app
 	end < ../Packagefiles/Npmfile
 end
 
