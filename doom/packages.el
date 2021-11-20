@@ -49,5 +49,5 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 
-(package! hedgehog-config
-  :recipe (:local-repo "~/.config/doom/config"))
+;; (package! hedgehog-config
+;;   :recipe (:local-repo "~/.config/doom/config"))
