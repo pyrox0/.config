@@ -3,4 +3,14 @@
 # Always use color. This isn't the 90's
 color = true
 encryption = "age"
+format = "yaml"
+
+# age encryption config
+[age]
+identity = "~/key.txt"
+symmetric = true
+
+[edit]
+command = "nvim"
+
 
