@@ -3,7 +3,10 @@
 SETUVAR --export DOOMDIR:/Users/993390/\x2econfig/doom
 SETUVAR --export EDITOR:nvim
 SETUVAR --export HOMEBREW_CASK_OPTS:\x2d\x2dappdir\x3d\x7e/Applications/
+SETUVAR --export HOMEBREW_INSTALL_BADGE:\U0001f427
 SETUVAR --export HOMEBREW_INSTALL_FROM_API:1
+SETUVAR --export PASSWORD_STORE_ENABLE_EXTENSIONS:true
+SETUVAR --export PASSWORD_STORE_EXTENSIONS_DIR:/Users/993390/\x2elocal/pipx/venvs/pass\x2dimport/lib/python3\x2e9/site\x2dpackages/usr/lib/password\x2dstore/extensions
 SETUVAR --export TERMINFO:/usr/share/terminfo
 SETUVAR __fish_initialized:3100
 SETUVAR _fisher_PatrickF1_2F_fzf_2E_fish_files:/Users/993390/\x2econfig/fish/functions/_fzf_configure_bindings_help\x2efish\x1e/Users/993390/\x2econfig/fish/functions/_fzf_extract_var_info\x2efish\x1e/Users/993390/\x2econfig/fish/functions/_fzf_preview_file\x2efish\x1e/Users/993390/\x2econfig/fish/functions/_fzf_report_file_type\x2efish\x1e/Users/993390/\x2econfig/fish/functions/_fzf_search_directory\x2efish\x1e/Users/993390/\x2econfig/fish/functions/_fzf_search_git_log\x2efish\x1e/Users/993390/\x2econfig/fish/functions/_fzf_search_git_status\x2efish\x1e/Users/993390/\x2econfig/fish/functions/_fzf_search_history\x2efish\x1e/Users/993390/\x2econfig/fish/functions/_fzf_search_variables\x2efish\x1e/Users/993390/\x2econfig/fish/functions/_fzf_wrapper\x2efish\x1e/Users/993390/\x2econfig/fish/functions/fzf_configure_bindings\x2efish\x1e/Users/993390/\x2econfig/fish/conf\x2ed/fzf\x2efish\x1e/Users/993390/\x2econfig/fish/completions/fzf_configure_bindings\x2efish
