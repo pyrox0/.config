@@ -3,3 +3,5 @@ github.com/cweill/gotests/...@latest
 github.com/x-motemen/gore/cmd/gore@latest
 golang.org/x/tools/cmd/guru@latest
 github.com/tigrawap/slit/cmd/slit@latest
+github.com/gopasspw/gopass@latest
+github.com/gopasspw/gopass-jsonapi@latest

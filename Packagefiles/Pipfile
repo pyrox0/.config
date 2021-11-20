@@ -6,3 +6,6 @@ poetry
 pytest
 nose
 pipenv
+pass-import
+zulip-term
+pynvim

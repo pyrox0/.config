@@ -1,3 +1,5 @@
 stylelint
 js-beautify
 pnpm
+@bitwarden/cli
+neovim

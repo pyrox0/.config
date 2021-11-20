@@ -28,3 +28,6 @@ taplo-cli
 stylua
 hexyl
 hyperfine
+age-plugin-yubikey
+fnm
+rustscan
