@@ -5,7 +5,7 @@ color:
 
 icons:
   when: auto
-  theme: unicode
+  theme: fancy
 
 indicators: true
 
