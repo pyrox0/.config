@@ -5,3 +5,5 @@ zinit wait lucid light-mode for \
 	zdharma-continuum/fast-syntax-highlighting \
 	zsh-users/zsh-autosuggestions \
 	olets/zsh-abbr	
+
+zinit snippet https://raw.githubusercontent.com/twpayne/chezmoi/master/completions/chezmoi.zsh
