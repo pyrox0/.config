@@ -21,6 +21,15 @@ end
 
 vim.o.termguicolors = true
 
+if jit.os == "OSX" then
+	vim.g.python_host_prog = "~/.brew/opt/python/libexec/bin/python"
+	vim.g.python3_host_prog = "~/.brew/bin/python3"
+end
+
+vim.g.loaded_python_provider = true
+vim.g.python_host_skip_check = true
+vim.g.python3_host_skip_check = true
+
 -- Load packer_compiled file
 require('packer_compiled')
 

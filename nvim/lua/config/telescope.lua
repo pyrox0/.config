@@ -22,4 +22,10 @@ require('telescope').setup{
 		},
 
 	}
+
 }
+
+-- Extensions
+
+-- Fzy-native
+require('telescope').load_extension('fzy_native')

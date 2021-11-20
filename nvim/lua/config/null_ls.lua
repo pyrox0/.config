@@ -6,5 +6,26 @@ local hover = null_ls.builtins.hover
 
 local sources = {
     format.rustfmt,
-    format.stylua,
-} 
+	format.stylua.with({
+        condition = function(utils)
+            return utils.root_has_file("stylua.toml")
+        end,
+    }),
+	format.black,
+	format.fish_indent,
+	format.gofmt,
+	format.isort,
+	
+}
+
+null_ls.config({
+	sources = sources,
+})
+
+require("lspconfig")["null-ls"].setup({
+	on_attach = function(client)
+    	if client.resolved_capabilities.document_formatting then
+        	vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
+    	end
+	end
+})

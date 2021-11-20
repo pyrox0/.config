@@ -54,3 +54,16 @@ wk.register({
 	prefix = "<leader>",
 	noremap = true,
 })
+
+-- Help keybindings
+wk.register({
+	h = {
+		name = "Help",
+		s = { "<cmd>Telescope help_tags<cr>", "Search helptags" },
+	}
+},
+{
+	mode = "n",
+	prefix = "<leader>",
+	noremap = true,
+})

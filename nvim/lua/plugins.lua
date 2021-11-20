@@ -84,6 +84,14 @@ return require('packer').startup({function(use)
 		as = 'filetype.nvim'
 	}
 
+	-- Lua fzy native
+	-- Faster fuzzy searching
+	use {
+		'romgrk/fzy-lua-native',
+		as = 'fzy-native',
+		run = 'make'
+	}
+
 	-- Core Plugins
 	-- These are the backbone of my workflow.
 
@@ -101,9 +109,8 @@ return require('packer').startup({function(use)
 	use {
 		'nvim-telescope/telescope.nvim',
 		as = 'telescope',
-		requires = {'popup', 'plenary', 'nvim-mapper'},
-		config = function() require('config.telescope') end,
-		cmd = 'Telescope',
+		requires = {'popup', 'plenary', 'nvim-mapper', 'nvim-telescope/telescope-fzy-native.nvim'},
+		config = function() require('config.telescope') end,	
 	}
 
 	-- Barbar.nvim
@@ -132,8 +139,18 @@ return require('packer').startup({function(use)
 		config = function() 
 			require'alpha'.setup(require'alpha.themes.dashboard'.opts) 
 		end,
-	}
 
+	}
+	
+	-- Wilder.nvim
+	-- A more adventurous wildmenu
+	use {
+		'gelguy/wilder.nvim',
+		as = 'wilder.nvim',
+		config = function() require('config.wilder') end,
+		on = 'CmdlineEnter',
+		requires = 'fzy-native',
+	}
 
 	-- LSP Plugins
 	
@@ -237,6 +254,21 @@ return require('packer').startup({function(use)
 		config = function() require('config.gitsigns') end
 	}
 
+	-- Neogit
+	-- Magit in Neovim!
+	use { 
+		'TimUntersberger/neogit',
+		as = 'neogit',
+		requires = 'plenary',
+		config = function() require('config.neogit') end,
+	}
+
+	use {
+		'sindrets/diffview.nvim',
+		as = 'diffview',
+		requires = 'plenary',
+		config = function() require('config.diffview') end,
+	}
 
 	-- Misc Plugins
 	
@@ -257,7 +289,7 @@ return require('packer').startup({function(use)
 		 config = function() require('config.sniprun') end
 	}
 
-	-- Zinit VIm Syntax
+	-- Zinit Vim Syntax
 	use {
 		'zdharma-continuum/zinit-vim-syntax',
 		as = 'zinit-vim',
