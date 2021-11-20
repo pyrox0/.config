@@ -79,6 +79,8 @@ fish/completions
 fish/conf.d/dracula.fish
 fish/conf.d/fzf.fish
 fish/functions
-/doom/config/minimap.el
+
+doom/config/minimap.el
 configstore/
 **/.DS_store
+chezmoi/chezmoistate.boltdb
