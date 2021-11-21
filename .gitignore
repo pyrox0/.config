@@ -84,4 +84,5 @@ doom/config/minimap.el
 configstore/
 **/.DS_store
 **.boltdb
-nvim/start.log
+lnav/
+**.log
