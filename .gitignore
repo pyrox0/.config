@@ -86,3 +86,4 @@ configstore/
 **.boltdb
 lnav/
 **.log
+**chezmoistate.boltdb
