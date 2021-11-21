@@ -83,4 +83,4 @@ fish/functions
 doom/config/minimap.el
 configstore/
 **/.DS_store
-chezmoi/chezmoistate.boltdb
+**.boltdb
