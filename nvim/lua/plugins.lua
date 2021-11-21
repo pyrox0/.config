@@ -2,12 +2,12 @@
 -- This is intended for use on my machines, and this is not a general-purpose
 -- config. I don't provide support for anyone else's use cases, and if you
 -- use this, expect breakages at any time, as I update my workflow. Thanks!
--- I do provide comments as to why I do what I do, but those may not be 
+-- I do provide comments as to why I do what I do, but those may not be
 -- updated to reflect my current workflow, as my real notes are in a
 -- private repo. But I try to keep the comments up to date.
 
 -- The plugins file, where the magic happens. This lazy-loads all the plugins.
--- All plugins will have a short comment explaining what they do. 
+-- All plugins will have a short comment explaining what they do.
 
 -- Bootstrap Packer and make sure it's installed correctly.
 local execute = vim.api.nvim_command
@@ -20,10 +20,10 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 return require('packer').startup({function(use)
-	
+
 	-- Libraries and Backend Packages
 	-- These are plugins which make other plugins work
-	-- This also include the package manager and my 
+	-- This also include the package manager and my
 	-- preferred theme.
 
 	-- Allow Packer to manage itself
@@ -60,9 +60,9 @@ return require('packer').startup({function(use)
 
 	-- Literally only used to set leader
 	use {
-    	"lazytanuki/nvim-mapper",
+		"lazytanuki/nvim-mapper",
 		as = 'nvim-mapper',
-    	config = function() require("nvim-mapper").setup{} end,
+		config = function() require("nvim-mapper").setup{} end,
 	}
 
 	-- Neovim Tree-sitter
@@ -104,13 +104,13 @@ return require('packer').startup({function(use)
 	}
 
 	-- Telescope
-	-- The juicy fuzzy finder and more. 
-	
+	-- The juicy fuzzy finder and more.
+
 	use {
 		'nvim-telescope/telescope.nvim',
 		as = 'telescope',
 		requires = {'popup', 'plenary', 'nvim-mapper', 'nvim-telescope/telescope-fzy-native.nvim'},
-		config = function() require('config.telescope') end,	
+		config = function() require('config.telescope') end,
 	}
 
 	-- Barbar.nvim
@@ -136,12 +136,12 @@ return require('packer').startup({function(use)
 	use {
 		'goolord/alpha-nvim',
 		as = 'dashboard',
-		config = function() 
-			require'alpha'.setup(require'alpha.themes.dashboard'.opts) 
+		config = function()
+			require'alpha'.setup(require'alpha.themes.dashboard'.opts)
 		end,
 
 	}
-	
+
 	-- Wilder.nvim
 	-- A more adventurous wildmenu
 	use {
@@ -153,14 +153,14 @@ return require('packer').startup({function(use)
 	}
 
 	-- LSP Plugins
-	
+
 	-- Nvim-LSPConfig: common configs for many LSP servers
 	use {
 		'neovim/nvim-lspconfig',
 		as = 'lspconfig',
 		config = function() require('config.lsp') end,
 	}
-    
+
 	-- Rust-tools.nvim:
 	-- Rust tools for writing rust in neovim.
 	use {
@@ -171,7 +171,7 @@ return require('packer').startup({function(use)
 	}
 
 	-- Null-LS
-	-- Use formatters as LSP servers 
+	-- Use formatters as LSP servers
 	use {
 		'jose-elias-alvarez/null-ls.nvim',
 		as = 'null_ls',
@@ -181,7 +181,7 @@ return require('packer').startup({function(use)
 
 	-- LSP-colors
 	-- Extra highlight groups for vim/pre-lsp colorschemes
-	use { 
+	use {
 		'folke/lsp-colors.nvim',
 		as = 'lspcolors',
 		after = 'lspconfig',
@@ -189,7 +189,7 @@ return require('packer').startup({function(use)
 
 
 	-- Autocomplete
-	
+
 	-- COQ.nvim
 	-- Fast as Fuck neovim completion plugin
 	use {
@@ -205,7 +205,7 @@ return require('packer').startup({function(use)
 		as = 'coq.artifacts',
 		after = 'coq.tp',
 		branch = 'artifacts',
-	}	
+	}
 	-- Integrations for COQ.nvim
 	use {
 		'ms-jpq/coq.thirdparty',
@@ -214,11 +214,11 @@ return require('packer').startup({function(use)
 		branch = '3p',
 		config = function() require('config.coq_3p') end
 	}
-	
+
 	-- Note-taking plugins(orgmode/neorg/other plugins)
 
 	-- Neorg: Modern neovim notetaking and more.
-	use { 
+	use {
     	"nvim-neorg/neorg",
 		disable = true,
 		as = "neorg",
@@ -235,7 +235,7 @@ return require('packer').startup({function(use)
         ft = 'org',
 		config = function() require ('config.orgmode') end
 		}
-	
+
 	-- Org Bullets
 	-- orgmode.nvim extension for fancy bullets
 	use {
@@ -256,7 +256,7 @@ return require('packer').startup({function(use)
 
 	-- Neogit
 	-- Magit in Neovim!
-	use { 
+	use {
 		'TimUntersberger/neogit',
 		as = 'neogit',
 		requires = 'plenary',
@@ -271,7 +271,7 @@ return require('packer').startup({function(use)
 	}
 
 	-- Misc Plugins
-	
+
 	-- Vim Tmux config syntax
 	use {
 		'tmux-plugins/vim-tmux',
@@ -281,7 +281,7 @@ return require('packer').startup({function(use)
 	}
 
 	-- Sniprun: Fast code snippet execution
-	 use { 
+	 use {
 		 'michaelb/sniprun',
 		 as = 'sniprun',
 		 after = 'coq.nvim',

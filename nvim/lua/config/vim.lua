@@ -2,7 +2,7 @@
 -- This is intended for use on my machines, and this is not a general-purpose
 -- config. I don't provide support for anyone else's use cases, and if you
 -- use this, expect breakages at any time, as I update my workflow. Thanks!
--- I do provide comments as to why I do what I do, but those may not be 
+-- I do provide comments as to why I do what I do, but those may not be
 -- updated to reflect my current workflow, as my real notes are in a
 -- private repo. But I try to keep the comments up to date.
 
@@ -30,7 +30,7 @@ g.timeoutlen = 50
 -- Tab width 4.
 o.tabstop = 4
 o.shiftwidth = 4
-
+o.expandtab = true
 -- Set better colors
 o.termguicolors = true
 
@@ -43,7 +43,7 @@ o.showmode = true
 -- Autoindent
 o.autoindent = true
 
--- The difference between these(above and below this) can be found here: 
+-- The difference between these(above and below this) can be found here:
 -- https://vi.stackexchange.com/questions/5818
 
 -- Smart indent
