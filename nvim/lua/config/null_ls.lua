@@ -15,7 +15,12 @@ local sources = {
 	format.fish_indent,
 	format.gofmt,
 	format.isort,
+	format.taplo,
+	format.trim_whitespace,
 	
+	diagnostic.shellcheck,
+	diagnostic.luacheck,
+
 }
 
 null_ls.config({
