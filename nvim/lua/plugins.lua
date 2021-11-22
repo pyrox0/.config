@@ -21,290 +21,301 @@ end
 
 return require('packer').startup({function(use)
 
-	-- Libraries and Backend Packages
-	-- These are plugins which make other plugins work
-	-- This also include the package manager and my
-	-- preferred theme.
+    -- Libraries and Backend Packages
+    -- These are plugins which make other plugins work
+    -- This also include the package manager and my
+    -- preferred theme.
 
-	-- Allow Packer to manage itself
-	-- Packer: The Neovim package manager
-	-- Reason: It's better than nvim-paq.
-	use { 'wbthomason/packer.nvim' }
+    -- Allow Packer to manage itself
+    -- Packer: The Neovim package manager
+    -- Reason: It's better than nvim-paq.
+    use { 'wbthomason/packer.nvim' }
 
-	-- Impatient.nvim
-	-- Speeds up neovim loading times a lot.
-	use 'lewis6991/impatient.nvim'
+    -- Impatient.nvim
+    -- Speeds up neovim loading times a lot.
+    use 'lewis6991/impatient.nvim'
 
-	-- For tami5's fork of impatient.nvim
-	use { "tami5/sqlite.lua", disable = true }
+    -- For tami5's fork of impatient.nvim
+    use { "tami5/sqlite.lua", disable = true }
 
 
-	-- Libraries
-	-- Depended on by many plugins
+    -- Libraries
+    -- Depended on by many plugins
 
-	-- Plenary: All the functions I didn't want to write twice.
-	use {'nvim-lua/plenary.nvim', as = 'plenary',}
+    -- Plenary: All the functions I didn't want to write twice.
+    use {'nvim-lua/plenary.nvim', as = 'plenary',}
 
-	-- Popup: an implementation of Vim's popup API in Neovim.
-	use {'nvim-lua/popup.nvim', as = 'popup',}
+    -- Popup: an implementation of Vim's popup API in Neovim.
+    use {'nvim-lua/popup.nvim', as = 'popup',}
 
-	-- A fancy notification manager for Neovim.
-	use {'rcarriga/nvim-notify', as = 'notify',}
+    -- A fancy notification manager for Neovim.
+    use {'rcarriga/nvim-notify', as = 'notify',}
 
-	-- Dracula Theme
-	-- Reason: I love it
-	use { 'dracula/vim', as = 'dracula' }
-	-- Nvim-web-devicons
-	-- The better devicons plugin
-	use {'kyazdani42/nvim-web-devicons', as = 'devicons',}
+    -- Dracula Theme
+    -- Reason: I love it
+    use { 'dracula/vim', as = 'dracula' }
+    -- Nvim-web-devicons
+    -- The better devicons plugin
+    use {'kyazdani42/nvim-web-devicons', as = 'devicons',}
 
-	-- Literally only used to set leader
-	use {
-		"lazytanuki/nvim-mapper",
-		as = 'nvim-mapper',
-		config = function() require("nvim-mapper").setup{} end,
-	}
+    -- Literally only used to set leader
+    use {
+        "lazytanuki/nvim-mapper",
+        as = 'nvim-mapper',
+        config = function() require("nvim-mapper").setup{} end,
+    }
 
-	-- Neovim Tree-sitter
-	use {
-		"nvim-treesitter/nvim-treesitter",
-		disable = false,
-		as = "treesitter",
-		run = ":TSUpdate",
-		config = function()
-			require('config.treesitter')
-		end,
+    -- Neovim Tree-sitter
+    use {
+        "nvim-treesitter/nvim-treesitter",
+        disable = false,
+        as = "treesitter",
+        run = ":TSUpdate",
+        config = function()
+            require('config.treesitter')
+        end,
         on = 'BufEnter'
-	}
+    }
 
-	-- Filetype.nvim
-	-- Faster filetype detection for neovim.
-	use {
-		'nathom/filetype.nvim',
-		as = 'filetype.nvim'
-	}
+    -- Filetype.nvim
+    -- Faster filetype detection for neovim.
+    use {
+        'nathom/filetype.nvim',
+        as = 'filetype.nvim'
+    }
 
-	-- Lua fzy native
-	-- Faster fuzzy searching
-	use {
-		'romgrk/fzy-lua-native',
-		as = 'fzy-native',
-		run = 'make'
-	}
+    -- Lua fzy native
+    -- Faster fuzzy searching
+    use {
+        'romgrk/fzy-lua-native',
+        as = 'fzy-native',
+        run = 'make'
+    }
 
-	-- Core Plugins
-	-- These are the backbone of my workflow.
+    -- Core Plugins
+    -- These are the backbone of my workflow.
 
-	-- Which-key.nvim
-	-- The Vim/Emacs which-key plugin ported to Neovim and Lua!
-	use {
-		'folke/which-key.nvim',
-		as = 'whichkey',
-		config = function() require("config.which-key") end,
-	}
+    -- Which-key.nvim
+    -- The Vim/Emacs which-key plugin ported to Neovim and Lua!
+    use {
+        'folke/which-key.nvim',
+        as = 'whichkey',
+        config = function() require("config.which-key") end,
+    }
 
-	-- Telescope
-	-- The juicy fuzzy finder and more.
+    -- Telescope
+    -- The juicy fuzzy finder and more.
 
-	use {
-		'nvim-telescope/telescope.nvim',
-		as = 'telescope',
-		requires = {'popup', 'plenary', 'nvim-mapper', 'nvim-telescope/telescope-fzy-native.nvim'},
-		config = function() require('config.telescope') end,
-	}
+    use {
+        'nvim-telescope/telescope.nvim',
+        as = 'telescope',
+        requires = {'popup', 'plenary', 'nvim-mapper', 'nvim-telescope/telescope-fzy-native.nvim'},
+        config = function() require('config.telescope') end,
+    }
 
-	-- Barbar.nvim
-	-- Tabs, as understood by all other editors
-	use {
-		'romgrk/barbar.nvim',
-		as = 'barbar',
-  		requires = {'devicons'},
-		on = 'BufEnter',
-	}
+    -- Barbar.nvim
+    -- Tabs, as understood by all other editors
+    use {
+        'romgrk/barbar.nvim',
+        as = 'barbar',
+        requires = {'devicons'},
+        on = 'BufEnter',
+    }
 
-	-- feline.nvim
-	-- A better, more programmable statusbar
-	use {
-		'famiu/feline.nvim',
-		as = 'feline',
-		requires = {'gitsigns', 'devicons'},
-		config = function() require('config.feline') end,
-		on = 'BufEnter',
-	}
+    -- feline.nvim
+    -- A better, more programmable statusbar
+    use {
+        'famiu/feline.nvim',
+        as = 'feline',
+        requires = {'gitsigns', 'devicons'},
+        config = function() require('config.feline') end,
+        on = 'BufEnter',
+    }
 
-	-- Dashboard
-	use {
-		'goolord/alpha-nvim',
-		as = 'dashboard',
-		config = function()
-			require'alpha'.setup(require'alpha.themes.dashboard'.opts)
-		end,
+    -- Dashboard
+    use {
+        'goolord/alpha-nvim',
+        as = 'dashboard',
+        config = function()
+            require'alpha'.setup(require'alpha.themes.dashboard'.opts)
+        end,
 
-	}
+    }
 
-	-- Wilder.nvim
-	-- A more adventurous wildmenu
-	use {
-		'gelguy/wilder.nvim',
-		as = 'wilder.nvim',
-		config = function() require('config.wilder') end,
-		on = 'CmdlineEnter',
-		requires = 'fzy-native',
-	}
+    -- Wilder.nvim
+    -- A more adventurous wildmenu
+    use {
+        'gelguy/wilder.nvim',
+        as = 'wilder.nvim',
+        config = function() require('config.wilder') end,
+        on = 'CmdlineEnter',
+        requires = 'fzy-native',
+    }
 
-	-- LSP Plugins
+    -- LSP Plugins
 
-	-- Nvim-LSPConfig: common configs for many LSP servers
-	use {
-		'neovim/nvim-lspconfig',
-		as = 'lspconfig',
-		config = function() require('config.lsp') end,
-	}
+    -- Nvim-LSPConfig: common configs for many LSP servers
+    use {
+        'neovim/nvim-lspconfig',
+        as = 'lspconfig',
+        config = function() require('config.lsp') end,
+    }
 
-	-- Rust-tools.nvim:
-	-- Rust tools for writing rust in neovim.
-	use {
-		'simrat39/rust-tools.nvim',
-		as = 'rust-tools',
-		after = 'lspconfig',
-		config = function() require('config.rust-tools') end
-	}
+    -- Rust-tools.nvim:
+    -- Rust tools for writing rust in neovim.
+    use {
+        'simrat39/rust-tools.nvim',
+        as = 'rust-tools',
+        after = 'lspconfig',
+        config = function() require('config.rust-tools') end
+    }
 
-	-- Null-LS
-	-- Use formatters as LSP servers
-	use {
-		'jose-elias-alvarez/null-ls.nvim',
-		as = 'null_ls',
-		after = 'lspconfig',
-		config = function() require('config.null_ls') end
-	}
+    -- Null-LS
+    -- Use formatters as LSP servers
+    use {
+        'jose-elias-alvarez/null-ls.nvim',
+        as = 'null_ls',
+        after = 'lspconfig',
+        config = function() require('config.null_ls') end
+    }
 
-	-- LSP-colors
-	-- Extra highlight groups for vim/pre-lsp colorschemes
-	use {
-		'folke/lsp-colors.nvim',
-		as = 'lspcolors',
-		after = 'lspconfig',
-	}
+    -- LSP-colors
+    -- Extra highlight groups for vim/pre-lsp colorschemes
+    use {
+        'folke/lsp-colors.nvim',
+        as = 'lspcolors',
+        after = 'lspconfig',
+    }
 
 
-	-- Autocomplete
+    -- Autocomplete
 
-	-- COQ.nvim
-	-- Fast as Fuck neovim completion plugin
-	use {
-		'ms-jpq/coq_nvim',
-		as = 'coq.nvim',
-		branch = 'coq',
-		run = ':COQdeps',
-		config = function() require('config.coq') end,
-	}
-	-- Snippets for COQ.nvim
-	use {
-		'ms-jpq/coq.artifacts',
-		as = 'coq.artifacts',
-		after = 'coq.tp',
-		branch = 'artifacts',
-	}
-	-- Integrations for COQ.nvim
-	use {
-		'ms-jpq/coq.thirdparty',
-		as = 'coq.tp',
-		after = 'coq.nvim',
-		branch = '3p',
-		config = function() require('config.coq_3p') end
-	}
+    -- COQ.nvim
+    -- Fast as Fuck neovim completion plugin
+    use {
+        'ms-jpq/coq_nvim',
+        as = 'coq.nvim',
+        branch = 'coq',
+        run = ':COQdeps',
+        config = function() require('config.coq') end,
+        requires = 'autopairs',
+    }
+    -- Snippets for COQ.nvim
+    use {
+        'ms-jpq/coq.artifacts',
+        as = 'coq.artifacts',
+        after = 'coq.tp',
+        branch = 'artifacts',
+    }
+    -- Integrations for COQ.nvim
+    use {
+        'ms-jpq/coq.thirdparty',
+        as = 'coq.tp',
+        after = 'coq.nvim',
+        branch = '3p',
+        config = function() require('config.coq_3p') end
+    }
 
-	-- Note-taking plugins(orgmode/neorg/other plugins)
+    -- Nvim-autopairs
+    -- does what is says on the can.
+    use {
+        'windwp/nvim-autopairs',
+        as = 'autopairs',
+    }
 
-	-- Neorg: Modern neovim notetaking and more.
-	use {
-    	"nvim-neorg/neorg",
-		disable = true,
-		as = "neorg",
-    	config = function() require('config.neorg') end,
-    	requires = "plenary"
-	}
+    -- Note-taking plugins(orgmode/neorg/other plugins)
 
-	-- Orgmode.nvim
-	use {
-		'kristijanhusak/orgmode.nvim',
-		as = 'orgmode',
-		after = 'treesitter',
-		branch = 'tree-sitter',
+    -- Neorg: Modern neovim notetaking and more.
+    use {
+        "nvim-neorg/neorg",
+        disable = true,
+        as = "neorg",
+        config = function() require('config.neorg') end,
+        requires = "plenary"
+    }
+
+    -- Orgmode.nvim
+    use {
+        'kristijanhusak/orgmode.nvim',
+        as = 'orgmode',
+        after = 'treesitter',
+        branch = 'tree-sitter',
         ft = 'org',
-		config = function() require ('config.orgmode') end
-		}
+        config = function() require ('config.orgmode') end
+        }
 
-	-- Org Bullets
-	-- orgmode.nvim extension for fancy bullets
-	use {
-		'akinsho/org-bullets.nvim',
-		as = 'org-bullets',
-		after = 'orgmode',
-		config = function() require('config.org-bullets') end
-	}
+    -- Org Bullets
+    -- orgmode.nvim extension for fancy bullets
+    use {
+        'akinsho/org-bullets.nvim',
+        as = 'org-bullets',
+        after = 'orgmode',
+        config = function() require('config.org-bullets') end
+    }
 
-	-- Git plugins
-	use {
-		'lewis6991/gitsigns.nvim',
-  		requires = { 'plenary' },
-		as = 'gitsigns2',
+    -- Git plugins
+    use {
+        'lewis6991/gitsigns.nvim',
+        requires = { 'plenary' },
+        as = 'gitsigns2',
         cmd = 'BufEnter',
-		config = function() require('config.gitsigns') end
-	}
+        config = function() require('config.gitsigns') end
+    }
 
-	-- Neogit
-	-- Magit in Neovim!
-	use {
-		'TimUntersberger/neogit',
-		as = 'neogit',
-		requires = 'plenary',
-		config = function() require('config.neogit') end,
-	}
+    -- Neogit
+    -- Magit in Neovim!
+    use {
+        'TimUntersberger/neogit',
+        as = 'neogit',
+        requires = 'plenary',
+        config = function() require('config.neogit') end,
+    }
 
-	use {
-		'sindrets/diffview.nvim',
-		as = 'diffview',
-		requires = 'plenary',
-		config = function() require('config.diffview') end,
-	}
+    use {
+        'sindrets/diffview.nvim',
+        as = 'diffview',
+        requires = 'plenary',
+        config = function() require('config.diffview') end,
+    }
 
-	-- Misc Plugins
+    -- Misc Plugins
 
-	-- Vim Tmux config syntax
-	use {
-		'tmux-plugins/vim-tmux',
-		as = 'tmux-conf',
-		after = 'sniprun',
-		ft = 'tmux'
-	}
+    -- Vim Tmux config syntax
+    use {
+        'tmux-plugins/vim-tmux',
+        as = 'tmux-conf',
+        after = 'sniprun',
+        ft = 'tmux'
+    }
 
-	-- Sniprun: Fast code snippet execution
-	 use {
-		 'michaelb/sniprun',
-		 as = 'sniprun',
-		 after = 'coq.nvim',
-	 	 run = 'bash ./install.sh',
-		 config = function() require('config.sniprun') end
-	}
+    -- Sniprun: Fast code snippet execution
+     use {
+         'michaelb/sniprun',
+         as = 'sniprun',
+         after = 'coq.nvim',
+         run = 'bash ./install.sh',
+         config = function() require('config.sniprun') end
+    }
 
-	-- Zinit Vim Syntax
-	use {
-		'zdharma-continuum/zinit-vim-syntax',
-		as = 'zinit-vim',
-	}
+    -- Zinit Vim Syntax
+    use {
+        'zdharma-continuum/zinit-vim-syntax',
+        as = 'zinit-vim',
+    }
 
+    if packer_bootstrap then
+        require('packer').sync()
+    end
 end,
 config = {
-	-- Packer Configuration
-	display = {
-		open_fn = require'packer.util'.float,
-		prompt_border = 'single',
-	},
-	log = { level = 'info' },
-	profile = {
-		enable = true
-	},
-	compile_path = vim.fn.stdpath('config')..'/lua/packer_compiled.lua'
+    -- Packer Configuration
+    display = {
+        open_fn = require'packer.util'.float,
+        prompt_border = 'single',
+    },
+    log = { level = 'info' },
+    profile = {
+        enable = true
+    },
+    compile_path = vim.fn.stdpath('config')..'/lua/packer_compiled.lua'
 }})

@@ -1,12 +1,12 @@
-#-- mrhedgehog0's neovim config.
+-- mrhedgehog0's neovim config.
 -- This is intended for use on my machines, and this is not a general-purpose
 -- config. I don't provide support for anyone else's use cases, and if you
 -- use this, expect breakages at any time, as I update my workflow. Thanks!
--- I do provide comments as to why I do what I do, but those may not be 
+-- I do provide comments as to why I do what I do, but those may not be
 -- updated to reflect my current workflow, as my real notes are in a
 -- private repo. But I try to keep the comments up to date.
 
--- init.lua, where it all begins. This is the heart of the config, and 
+-- init.lua, where it all begins. This is the heart of the config, and
 -- everything in the config eventually leads back here.
 
 -- Load impatient.nvim for fast loading.
@@ -15,8 +15,7 @@ require'impatient'.enable_profile()
 local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-  fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-  vim.cmd 'packadd packer.nvim'
+    packer_bootstrap = fn.system({'git','clone','--depth','1','https://github.com/wbthomason/packer.nvim',install_path})
 end
 
 vim.o.termguicolors = true
